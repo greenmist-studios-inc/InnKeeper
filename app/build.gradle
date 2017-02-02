@@ -22,7 +22,6 @@ android {
         release {
             minifyEnabled true
             debuggable false
-
         }
         debug {
             minifyEnabled false

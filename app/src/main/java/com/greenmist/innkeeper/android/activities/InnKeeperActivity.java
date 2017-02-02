@@ -9,6 +9,8 @@ import com.greenmist.innkeeper.android.R;
 import com.greenmist.innkeeper.model.enums.Permission;
 import com.greenmist.innkeeper.model.enums.RequestCode;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by geoff.powell on 1/20/2017.
  */
@@ -25,7 +27,6 @@ public class InnKeeperActivity extends GMBaseDrawerActivity {
         if (permissionUtils.checkPermission(this, Permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             onReadExternalStorageGranted();
         }
-
     }
 
     @Override
@@ -62,6 +63,6 @@ public class InnKeeperActivity extends GMBaseDrawerActivity {
     }
 
     private void onReadExternalStorageGranted() {
-
+        //TODO Add functionality when permissions are granted
     }
 }
