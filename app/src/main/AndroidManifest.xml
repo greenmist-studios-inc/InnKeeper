@@ -1,21 +1,52 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.greenmist.innkeeper.android">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name="com.greenmist.innkeeper.InnKeeperApp"
         >
 
         <activity
             android:name=".activities.InnKeeperActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.StatsActivity"
+            />
+
+        <activity
+            android:name=".activities.DecksActivity"
+            />
+
+        <activity
+            android:name=".activities.ReplaySelectionActivity"
             />
 
         <activity
             android:name=".activities.SettingsActivity"
             />
+
+        <activity
+            android:name=".activities.AboutActivity"
+            />
+
+
+        <service
+            android:name=".services.HSOverlayService"
+            />
+
     </application>
 
 </manifest>

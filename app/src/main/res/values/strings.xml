@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">InnKeeper</string>
+    <string name="app_name">@string/innkeeper</string>
+    <string name="innkeeper">InnKeeper</string>
+
+    <string name="content_desc_drawer_open">Drawer Open</string>
+    <string name="content_desc_drawer_closed">Drawer Closed</string>
+
+    <!-- Actions -->
+    <string name="action_overlay">Overlay</string>
+
+    <!-- Titles -->
+    <string name="title_decks">Decks</string>
+    <string name="title_replays">Replays</string>
+    <string name="title_stats">Stats</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_about">About</string>
+
 </resources>
