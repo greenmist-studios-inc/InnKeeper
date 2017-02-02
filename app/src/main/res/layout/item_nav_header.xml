@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="96dp"
+    android:padding="@dimen/activity_margin_half"
+    android:background="@color/ik_yellow_dark"
+    >
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_margin_half"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:text="Log Out"
+        android:clickable="true"
+        android:textAllCaps="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
+
+</RelativeLayout>
