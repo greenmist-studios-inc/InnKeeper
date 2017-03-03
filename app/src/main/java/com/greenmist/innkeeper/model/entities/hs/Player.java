@@ -1,11 +1,12 @@
 package com.greenmist.innkeeper.model.entities.hs;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by geoff.powell on 1/21/17.
  */
-public class Player {
+public class Player implements Serializable {
 
     private int id;
     private String name;

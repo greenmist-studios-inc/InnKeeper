@@ -2,10 +2,12 @@ package com.greenmist.innkeeper.model.entities.hs;
 
 import com.greenmist.innkeeper.model.enums.hs.CardType;
 
+import java.io.Serializable;
+
 /**
  * Created by geoff.powell on 2/3/17.
  */
-public class Weapon extends Card {
+public class Weapon extends Card implements Serializable {
 
     private int attack;
     private int durability;

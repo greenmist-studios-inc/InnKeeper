@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hs_api_url">https://omgvamp-hearthstone-v1.p.mashape.com/</string>
+</resources>

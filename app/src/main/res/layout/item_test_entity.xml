@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="entity"
+            type="com.greenmist.innkeeper.model.entities.hs.HSEntity"
+            />
+        <variable
+            name="viewModel"
+            type="com.greenmist.innkeeper.model.entities.hs.HSEntity"
+            />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        >
+
+        <ImageView
+            android:id="@+id/card"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_vertical"
+            bind:imageUrl="@{ entity.hsCard.img }"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@{ entity.name + ' ' + entity.cardId }"
+                />
+
+
+            <TextView
+                android:id="@+id/tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                bind:propertyMap="@{ entity.properties }"
+                />
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

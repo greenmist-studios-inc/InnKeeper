@@ -1,31 +1,52 @@
 package com.greenmist.innkeeper.android.activities;
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.greenmist.innkeeper.android.R;
+import com.greenmist.innkeeper.android.adapters.DebugGameLogAdapter;
+import com.greenmist.innkeeper.model.entities.hs.HSEntity;
 import com.greenmist.innkeeper.model.enums.Permission;
-import com.greenmist.innkeeper.model.enums.RequestCode;
+import com.greenmist.innkeeper.model.enums.hs.Zone;
+import com.greenmist.innkeeper.model.enums.hs.ZoneType;
+import com.greenmist.innkeeper.mvvm.MVVMBase;
+import com.greenmist.innkeeper.mvvm.MVVMHSScan;
+import com.greenmist.innkeeper.mvvm.viewmodel.InnKeeperViewModel;
 
-import static android.app.Activity.RESULT_OK;
+import butterknife.BindView;
 
 /**
  * Created by geoff.powell on 1/20/2017.
  */
 
-public class InnKeeperActivity extends GMBaseDrawerActivity {
+public class InnKeeperActivity extends GMBaseDrawerActivity implements MVVMHSScan.View {
+
+    @BindView(R.id.cards)           RecyclerView cardList;
 
     //TODO Store in shared preferences
     private boolean overlayActive = false;
+
+    private MVVMHSScan.ViewModel viewModel;
+    private DebugGameLogAdapter adapter;
 
     @Override
     protected void setupDependencies() {
         setToolbarTitle(R.string.innkeeper);
 
-        if (permissionUtils.checkPermission(this, Permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            onReadExternalStorageGranted();
+        viewModel = new InnKeeperViewModel(this, logger);
+        cardList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        adapter = new DebugGameLogAdapter(viewModel);
+        cardList.setAdapter(adapter);
+        cardList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        if (permissionUtils.checkPermission(this, Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE)) {
+            viewModel.onReadExternalStorageGranted();
+            viewModel.onWriteExternalStorageGranted();
         }
     }
 
@@ -53,16 +74,22 @@ public class InnKeeperActivity extends GMBaseDrawerActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @NonNull
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == RequestCode.PERMISSION_READ_EXTERNAL.getCode() && resultCode == RESULT_OK) {
-            onReadExternalStorageGranted();
-        }
+    public MVVMBase.ViewModel getViewModel() {
+        return viewModel;
     }
 
-    private void onReadExternalStorageGranted() {
-        //TODO Add functionality when permissions are granted
+    @Override
+    public void notifyInsert(int index) {
+    }
+
+    @Override
+    public void notifyRemoval(int index) {
+    }
+
+    @Override
+    public void showZoneChange(HSEntity hsEntity, int playerId, Zone zoneFrom, ZoneType zoneFromType, Zone zoneTo, ZoneType zoneToType) {
+
     }
 }

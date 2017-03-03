@@ -7,7 +7,8 @@ import android.Manifest;
  */
 public enum  Permission {
 
-    READ_EXTERNAL_STORAGE (RequestCode.PERMISSION_READ_EXTERNAL.getCode(), Manifest.permission.READ_EXTERNAL_STORAGE);
+    READ_EXTERNAL_STORAGE (RequestCode.PERMISSION_READ_EXTERNAL.getCode(), Manifest.permission.READ_EXTERNAL_STORAGE),
+    WRITE_EXTERNAL_STORAGE (RequestCode.PERMISSION_WRITE_EXTERNAL.getCode(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
     private int requestCode;
     private String permission;

@@ -25,10 +25,9 @@ public class HSOverlayService extends Service {
         super.onCreate();
         setTheme(R.style.AppTheme);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.canDrawOverlays(this) == false) {
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            //TODO Show error message
         } else {
-
         }
     }
 

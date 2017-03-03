@@ -7,5 +7,16 @@ public enum Zone {
     HAND,
     PLAY,
     DECK,
-    SETASIDE
+    GRAVEYARD,
+    SETASIDE,
+    UNKNOWN;
+
+    public static Zone parse(String string) {
+        for (Zone zone : values()) {
+            if (zone.name().equalsIgnoreCase(string)) {
+                return zone;
+            }
+        }
+        return UNKNOWN;
+    }
 }

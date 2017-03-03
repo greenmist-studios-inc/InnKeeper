@@ -1,4 +1,4 @@
-package com.greenmist.innkeeper.dao;
+package com.greenmist.innkeeper.android.dao;
 
 import io.realm.DynamicRealm;
 import io.realm.RealmMigration;

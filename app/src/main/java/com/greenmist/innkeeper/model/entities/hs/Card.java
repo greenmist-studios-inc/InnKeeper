@@ -5,10 +5,12 @@ import com.greenmist.innkeeper.model.enums.hs.CardType;
 import com.greenmist.innkeeper.model.enums.hs.Rarity;
 import com.greenmist.innkeeper.model.enums.hs.Zone;
 
+import java.io.Serializable;
+
 /**
  * Created by geoff.powell on 2/3/17.
  */
-public abstract class Card {
+public abstract class Card implements Serializable {
 
     private int id;
     private String cardId;
